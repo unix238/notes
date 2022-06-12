@@ -1,4 +1,4 @@
-import noteModel from "./models/note-model.js";
+const noteModel = require('./models/note-model.js');
 
 class NotesController {
   async getAll(req, res) {
@@ -11,7 +11,7 @@ class NotesController {
   }
 
   async getById(req, res) {
-    res.set("Access-Control-Allow-Origin", "*");
+    res.set('Access-Control-Allow-Origin', '*');
     res.json(await noteModel.findById(req.params.id));
   }
 
@@ -45,4 +45,4 @@ class NotesController {
   }
 }
 
-export default new NotesController();
+module.exports = new NotesController();
